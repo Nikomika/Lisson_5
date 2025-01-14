@@ -1,11 +1,32 @@
-public class TwoArray {
-    public static void getMyTwoDimensionalArray(String[][] myTwoDimensionalArray) {
-        for (int o = 0; o < 4; o++) {
-            for (int f = 0; f < 4; f++) {
-                System.out.print(" " + myTwoDimensionalArray[o][f] + " ");
-            }
-            System.out.println();
-        }
-    }
+import java.util.Arrays;
 
+public class TwoArray {
+    public static int analyze(String[][] array) throws MyArraySizeException, MyArrayDataException {
+
+        int summ = 0;
+        int value;
+        int row;
+        int cell;
+
+        if(array.length != 4 || array[0].length != 4 || array[1].length != 4) {
+            throw new MyArraySizeException();
+        }
+
+        for(int i=1;i<5;i++){
+            row = i;
+            for(int c=1;c<5;c++){
+                cell = c;
+                try{
+                    value = Integer.parseInt(array[i-1][c-1]);
+                    summ += value;
+                } catch (IllegalArgumentException e){
+                    String message = "в "+String.valueOf(row)+" ряду, "+String.valueOf(cell)+" ячейке";
+                    throw new MyArrayDataException(message);
+                }
+            }
+        }
+
+        return summ;
+    }
 }
+
