@@ -16,7 +16,7 @@ public class Main {
         } catch(MyArrayDataException e){
             System.out.println(e.getMessage());
         } finally {
-            System.out.println("Сумма элементов массива равна "+String.valueOf(result));
+            System.out.println("Сумма элементов массива равна "+result);
         }
 
         try {

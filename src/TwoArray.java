@@ -20,7 +20,7 @@ public class TwoArray {
                     value = Integer.parseInt(array[i-1][c-1]);
                     summ += value;
                 } catch (IllegalArgumentException e){
-                    String message = "в "+String.valueOf(row)+" ряду, "+String.valueOf(cell)+" ячейке";
+                    String message = "в "+row+" ряду, "+cell+" ячейке";
                     throw new MyArrayDataException(message);
                 }
             }
